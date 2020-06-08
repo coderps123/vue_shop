@@ -14,13 +14,22 @@ Vue.use(ElementUI);
 import axios from 'axios'
 // 2. 配置请求的根路径
 axios.defaults.baseURL = "https://www.liulongbin.top:8888/api/private/v1/"
+
+// 配置拦截器
+axios.interceptors.request.use(config=> {
+  // 在请求头中添加 Authorization 字段 保存 token
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  // 在最后必须  return config
+  return config
+})
 // 3. 将 axios 添加到Vue的原型上
 Vue.prototype.$http = axios
 
 // 导入全局样式表
-import './assets/css/base.css'
+import './assets/css/global.css'
 
 import router from "./router"
+import VueQuillEditor from "./vue-quill-editor";
 
 Vue.config.productionTip = false
 
@@ -30,4 +39,5 @@ Vue.config.productionTip = false
 new Vue({
   render: h => h(App),
   router,
+  VueQuillEditor,
 }).$mount('#app')

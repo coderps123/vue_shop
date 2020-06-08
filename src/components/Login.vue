@@ -57,14 +57,14 @@
     methods: {
       loginFromReset() {
         // console.log(this)
-        // elemeent-ui 内部提供很多可用的表单方法
+        // element-ui 内部提供很多可用的表单方法
         this.$refs.login_from_ref.resetFields()
       },
       loginFromValidate() {
         this.$refs.login_from_ref.validate(valid =>{
           if (!valid) return
           this.$http.post('login', this.login_from).then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.adminData = res.data
             if (this.adminData.meta.status !== 200) return this.$message.error('登录失败')
             this.$message({

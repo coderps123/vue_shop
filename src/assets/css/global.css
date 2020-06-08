@@ -1,0 +1,29 @@
+html,
+body,
+#app{
+  width: 100%;
+  height: 100%;
+  background-color: #2b4b6b;
+  margin: 0;
+  padding: 0;
+
+/*最小宽度*/
+  min-width: 1030px;
+}
+/*面包屑*/
+.el-breadcrumb{
+  font-size: 16px;
+}
+
+/*卡片*/
+.el-card{
+  margin-top: 20px;
+}
+/*步骤条下方title*/
+.el-step__title{
+  font-size: 12px !important;
+}
+/*富文本内容高度*/
+.ql-container.ql-snow{
+  height: 400px;
+}
